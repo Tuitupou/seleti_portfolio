@@ -13,7 +13,7 @@ export const StarBackground = () => {
 
         const handleResize = () => {
             generateStars();
-        }
+        };
 
         window.addEventListener("resize", handleResize);
 
@@ -24,6 +24,7 @@ export const StarBackground = () => {
         const numberOfStars = Math.floor(
             (window.innerWidth * window.innerHeight) / 10000
         );
+
         const newStars = [];
 
         for (let i = 0; i < numberOfStars; i++) {
@@ -39,7 +40,6 @@ export const StarBackground = () => {
 
         setStars(newStars);
     };
-
 
     const generateMeteors = () => {
         const numberOfMeteors = 4;
