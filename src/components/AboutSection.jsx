@@ -1,3 +1,4 @@
+import { Briefcase, Code, User } from "lucide-react";
 import React from "react";
 
 export const AboutSection = () => {
@@ -45,8 +46,46 @@ export const AboutSection = () => {
                         </div>
                     </div>
 
-                    <div>
-
+                    <div className="grid grid-cols-1 gap-6">
+                        <div className="gradient-border p-6 card-hover">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <Code className="h-6 w-6 text-primary"/>
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="font-semibold text-lg">Frontend Skills</h4>
+                                    <p className="text-muted-foreground">
+                                        HTML/CSS, SCSS, Bootstrap, TailwindCSS, React.js
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="gradient-border p-6 card-hover">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <User className="h-6 w-6 text-primary"/>
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="font-semibold text-lg">Backend Skills</h4>
+                                    <p className="text-muted-foreground">
+                                        JavaScript, Node.js
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="gradient-border p-6 card-hover">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <Briefcase className="h-6 w-6 text-primary"/>
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="font-semibold text-lg">Database Management</h4>
+                                    <p className="text-muted-foreground">
+                                        MySQL
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
