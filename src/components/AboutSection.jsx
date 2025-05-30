@@ -1,5 +1,6 @@
 import { Briefcase, Code, User } from "lucide-react";
 import React from "react";
+import { ArrowDown } from "lucide-react";
 
 export const AboutSection = () => {
     return (
@@ -27,10 +28,7 @@ export const AboutSection = () => {
                         </p>
 
                         <p className="text-muted-foreground">
-                           Frontend skills: HTML/CSS, SCSS, Bootstrap, React.js
-                           Backend skills: JavaScript, Node.js
-                           Mobile skills: React Native
-                           Database Management: MySQL
+                           Random fun facts: I'm a father 3 wonderful kids; 2 girls and 1 boy. I've competed in folkstyle wrestling, gridiron football, rugby, and powerlifting.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -88,6 +86,10 @@ export const AboutSection = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-12 flex flex-col items-center animate-bounce">
+                <span className="text-sm text-muted-foreground mb-2">Scroll</span>
+                <ArrowDown className="h-5 w-5 text-primary" />
             </div>
         </section>
     );
