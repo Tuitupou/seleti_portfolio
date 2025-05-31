@@ -44,16 +44,16 @@ export const AboutSection = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-6">
+                    <div className="grid grid-cols-1 gap-8">
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-start gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Code className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg">Frontend Skills</h4>
+                                    <h4 className="font-semibold text-lg">Technology Interests</h4>
                                     <p className="text-muted-foreground">
-                                        HTML/CSS, SCSS, Bootstrap, TailwindCSS, React.js
+                                        Fullstack engineering, data science, data analytics, database engineering, and cybersecurity
                                     </p>
                                 </div>
                             </div>
@@ -64,9 +64,9 @@ export const AboutSection = () => {
                                     <User className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg">Backend Skills</h4>
+                                    <h4 className="font-semibold text-lg">Cooperative</h4>
                                     <p className="text-muted-foreground">
-                                        JavaScript, Node.js
+                                        With a background in team sports and anthropology, I have the cross-cultural skills and experience to work effectively in collaborative environments.
                                     </p>
                                 </div>
                             </div>
@@ -77,9 +77,9 @@ export const AboutSection = () => {
                                     <Briefcase className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg">Database Management</h4>
+                                    <h4 className="font-semibold text-lg">Industrious</h4>
                                     <p className="text-muted-foreground">
-                                        MySQL
+                                        In previous position, worked 80+hrs/week for 8 years straight in stressful conditions.
                                     </p>
                                 </div>
                             </div>
