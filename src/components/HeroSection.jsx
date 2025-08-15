@@ -21,7 +21,8 @@ export const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        In an era of increasing specialization, I take pride in being a well-rounded technologist. As a full-stack engineering student, I continuously expand my expertise into related fields, including artificial intelligence and machine learning, data science and analytics, and database engineering. My goal is to integrate knowledge across disciplines to solve complex problems with creativity and precision.
+                        <h2>"Full Stack Developer | QA Automation | Accounting-Tech Integrator | Future AI Engineer"</h2>
+                        I build intelligent, automated, and data-driven solutions that bridge software engineering, accounting systems, and AI. With a foundation in full stack development and growing expertise in QA automation and business process optimization, I help organizations work smarter and scale faster. My ultimate mission? To design AI-powered systems that transform how businesses operate.
                     </p>
 
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">

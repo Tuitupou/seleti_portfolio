@@ -14,12 +14,12 @@ const projects = [
     
     {
         id: 2,
-        title: "Favorite Movies App",
-        description: "A movie app to filter your favorite movies using React and SCSS.",
+        title: "Tuitupou Solutions",
+        description: "Landing page for my tech and accounting consultancy",
         image: "/projects/project_2.png",
-        tags: ["React", "SCSS"],
-        demoUrl: "#",
-        githubUrl: "https://github.com/Tuitupou/favorite_movies_app.git",
+        tags: ["React", "TailwindCSS"],
+        demoUrl: "https://tuitupou-tech.vercel.app/",
+        githubUrl: "https://github.com/Tuitupou/tuitupou_tech.git",
     },
 
     {

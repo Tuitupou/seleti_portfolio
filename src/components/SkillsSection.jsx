@@ -16,12 +16,14 @@ const skills = [
     { name: "SQL", level: 75, category: "backend" },
 
     //Mobile
-    { name: "React Native", level: 60, category: "mobile" },
+    { name: "React Native", level: 70, category: "mobile" },
 
     //Tools
     { name: "Git/GitHub", level: 75, category: "tools" },
     { name: "VS Code", level: 75, category: "tools" },
     { name: "Docker", level: 60, category: "tools" },
+    { name: "Playwright", level: 60, category: "tools" },
+    { name: "Selenium", level: 60, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "mobile", "tools"];
