@@ -322,3 +322,207 @@
   /* Optimize root element */
   contain: layout style paint;
 }
+
+@media (max-width: 768px) {
+  /* Ensure all interactive elements meet minimum touch target size */
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  [role="button"],
+  [role="link"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Optimize form elements for mobile */
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px 16px;
+  }
+
+  /* Mobile menu optimizations */
+  .mobile-menu-container {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+
+  /* Improve tap targets on cards */
+  .card-hover {
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  /* Mobile-friendly spacing */
+  .container {
+    padding-inline: 1rem;
+  }
+
+  /* Optimize text for mobile reading */
+  p, .text-muted-foreground {
+    line-height: 1.6;
+  }
+
+  /* Improve button spacing */
+  .cosmic-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1.125rem;
+  }
+
+  /* Enhanced focus states for mobile */
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus {
+    outline: 3px solid rgba(139, 92, 246, 0.5);
+    outline-offset: 2px;
+  }
+}
+
+/* Tablet-specific optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding-inline: 2rem;
+  }
+
+  /* Optimize grid layouts for tablet */
+  .grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* High DPI screen optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure icons and images are crisp */
+  svg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Improved mobile navigation z-index management */
+.mobile-menu-container {
+  z-index: 9999;
+}
+
+.mobile-menu-container + * {
+  z-index: 1;
+}
+
+/* Mobile-specific animation optimizations */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile for performance */
+  .animate-bounce {
+    animation-duration: 2s;
+  }
+
+  .card-hover:hover {
+    transform: translateZ(0) scale(1.01);
+  }
+
+  /* Optimize star background for mobile */
+  .star,
+  .meteor {
+    will-change: opacity;
+  }
+}
+
+/* Safe area insets for devices with notches/home indicators */
+@supports (padding: max(0px)) {
+  .mobile-menu-container {
+    padding-top: max(2rem, env(safe-area-inset-top));
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .hero-section {
+    padding-top: max(5rem, env(safe-area-inset-top) + 5rem);
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-menu-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .mobile-menu-container .space-y-8 {
+    gap: 1.5rem;
+  }
+
+  .mobile-menu-container a {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Accessibility: Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-container,
+  .mobile-menu-container * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .mobile-menu-container {
+    background: var(--background);
+    border: 2px solid var(--foreground);
+  }
+
+  button,
+  a {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Dark mode mobile optimizations */
+.dark {
+  /* Improve mobile menu backdrop */
+  .mobile-menu-container {
+    background: rgba(34, 42, 53, 0.98);
+    backdrop-filter: blur(20px);
+  }
+
+  /* Better mobile form styling */
+  input,
+  textarea {
+    background: rgba(34, 42, 53, 0.8);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+
+  input:focus,
+  textarea:focus {
+    background: rgba(34, 42, 53, 1);
+    border-color: rgba(139, 92, 246, 0.8);
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  /* Reduce complexity of gradients and shadows on mobile */
+  .gradient-border::before {
+    background: linear-gradient(45deg, transparent, hsl(var(--primary)), transparent);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 5px rgba(167, 139, 250, 0.3);
+  }
+
+  /* Optimize scroll performance */
+  .container,
+  .mobile-menu-container {
+    transform: translateZ(0);
+    will-change: scroll-position;
+  }
+}
