@@ -22,7 +22,7 @@ export const HeroSection = () => {
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 md:pt-0"
+            className="hero-section relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 md:pt-0"
         >
             <div className="container max-w-4xl mx-auto text-center z-10">
                 <div className="space-y-6 md:space-y-8">
@@ -91,7 +91,7 @@ export const HeroSection = () => {
 
                     {/* Quick Stats - Mobile Optimized */}
                     <div className={`pt-8 opacity-0 ${isVisible ? 'animate-fade-in-delay-4' : ''}`}>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-lg sm:max-w-2xl mx-auto">
+                        <div className="stats-grid grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-lg sm:max-w-2xl mx-auto">
                             <div className="text-center p-4 bg-card/50 rounded-lg backdrop-blur-sm border border-border/50">
                                 <div className="text-2xl font-bold text-primary">3+</div>
                                 <div className="text-sm text-muted-foreground">Years Learning</div>
@@ -112,7 +112,7 @@ export const HeroSection = () => {
             {/* Scroll Indicator - Hidden on small screens, optimized touch target on larger */}
             <button
                 onClick={() => scrollToSection('#about')}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center animate-bounce hover:animate-none transition-all duration-200 p-4 min-h-[48px] min-w-[48px] justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
+                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center animate-bounce hover:animate-none transition-all duration-200 p-4 min-h-[48px] min-w-[48px] justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg z-20"
                 aria-label="Scroll to about section"
             >
                 <span className="text-sm text-muted-foreground mb-2">Scroll</span>

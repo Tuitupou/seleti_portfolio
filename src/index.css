@@ -408,10 +408,53 @@
 /* Improved mobile navigation z-index management */
 .mobile-menu-container {
   z-index: 9999;
+  position: relative;
 }
 
-.mobile-menu-container + * {
-  z-index: 1;
+/* Ensure mobile menu button is always clickable */
+.mobile-menu-button {
+  z-index: 10000 !important;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Ensure mobile menu overlay doesn't interfere with button clicks */
+.mobile-menu-overlay {
+  z-index: 9998;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Improve mobile menu touch targets */
+.mobile-menu-container [role="menuitem"] {
+  min-height: 48px;
+  min-width: 48px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Ensure mobile menu is above all other content */
+.mobile-menu-container {
+  z-index: 9999;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure hero section scroll indicator is properly positioned */
+.hero-section {
+  position: relative;
+}
+
+.hero-section button[aria-label*="Scroll"] {
+  z-index: 20;
+  position: absolute;
+  pointer-events: auto;
+}
+
+/* Ensure stats section doesn't interfere with scroll indicator */
+.hero-section .stats-grid {
+  position: relative;
+  z-index: 10;
 }
 
 /* Mobile-specific animation optimizations */

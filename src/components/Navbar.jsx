@@ -38,8 +38,30 @@ export const Navbar = () => {
             }
         };
 
+        const handleKeyDown = (e) => {
+            if (!isMenuOpen) return;
+            
+            if (e.key === 'Escape') {
+                setIsMenuOpen(false);
+            } else if (e.key === 'Tab') {
+                // Handle tab navigation within menu
+                const menuItems = document.querySelectorAll('#mobile-menu [role="menuitem"]');
+                const firstItem = menuItems[0];
+                const lastItem = menuItems[menuItems.length - 1];
+                
+                if (e.shiftKey && document.activeElement === firstItem) {
+                    e.preventDefault();
+                    lastItem.focus();
+                } else if (!e.shiftKey && document.activeElement === lastItem) {
+                    e.preventDefault();
+                    firstItem.focus();
+                }
+            }
+        };
+
         if (isMenuOpen) {
             document.addEventListener('keydown', handleEscape);
+            document.addEventListener('keydown', handleKeyDown);
             document.addEventListener('click', handleClickOutside);
             // Prevent body scroll when menu is open
             document.body.style.overflow = 'hidden';
@@ -49,6 +71,7 @@ export const Navbar = () => {
 
         return () => {
             document.removeEventListener('keydown', handleEscape);
+            document.removeEventListener('keydown', handleKeyDown);
             document.removeEventListener('click', handleClickOutside);
             document.body.style.overflow = 'unset';
         };
@@ -80,6 +103,22 @@ export const Navbar = () => {
         const element = document.querySelector(href);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const toggleMobileMenu = () => {
+        const newMenuState = !isMenuOpen;
+        setIsMenuOpen(newMenuState);
+        
+        // Focus management
+        if (newMenuState) {
+            // Focus first menu item when menu opens
+            setTimeout(() => {
+                const firstMenuItem = document.querySelector('#mobile-menu [role="menuitem"]');
+                if (firstMenuItem) {
+                    firstMenuItem.focus();
+                }
+            }, 100);
         }
     };
 
@@ -140,15 +179,18 @@ export const Navbar = () => {
 
                     {/* Mobile Menu Button */}
                     <button
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        onClick={toggleMobileMenu}
                         className={cn(
-                            "md:hidden p-3 text-foreground z-50 relative",
+                            "mobile-menu-button md:hidden p-3 text-foreground relative",
                             "min-h-[48px] min-w-[48px] flex items-center justify-center",
                             "rounded-lg hover:bg-muted/50 transition-colors duration-200",
-                            "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                            "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+                            "touch-manipulation"
                         )}
                         aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
                         aria-expanded={isMenuOpen}
+                        aria-controls="mobile-menu"
+                        type="button"
                     >
                         <div className="relative w-6 h-6">
                             <Menu 
@@ -157,6 +199,7 @@ export const Navbar = () => {
                                     isMenuOpen ? "opacity-0 rotate-180" : "opacity-100 rotate-0"
                                 )}
                                 size={24} 
+                                aria-hidden="true"
                             />
                             <X 
                                 className={cn(
@@ -164,6 +207,7 @@ export const Navbar = () => {
                                     isMenuOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-180"
                                 )}
                                 size={24} 
+                                aria-hidden="true"
                             />
                         </div>
                     </button>
@@ -172,8 +216,9 @@ export const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             <div 
+                id="mobile-menu"
                 className={cn(
-                    "fixed inset-0 z-40 md:hidden transition-all duration-300",
+                    "mobile-menu-overlay fixed inset-0 md:hidden transition-all duration-300",
                     isMenuOpen 
                         ? "opacity-100 pointer-events-auto" 
                         : "opacity-0 pointer-events-none"
@@ -210,6 +255,7 @@ export const Navbar = () => {
                                         "min-h-[56px] px-6 py-3 flex items-center justify-center rounded-lg",
                                         "transform hover:scale-105 focus:scale-105",
                                         "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+                                        "touch-manipulation",
                                         isActive 
                                             ? "text-primary bg-primary/10" 
                                             : "text-foreground/90 hover:text-primary hover:bg-muted/50",
@@ -223,6 +269,8 @@ export const Navbar = () => {
                                         e.preventDefault();
                                         handleNavClick(item.href);
                                     }}
+                                    role="menuitem"
+                                    tabIndex={isMenuOpen ? 0 : -1}
                                 >
                                     {item.name}
                                     {isActive && (
